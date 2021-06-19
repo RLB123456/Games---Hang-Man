@@ -1,0 +1,400 @@
+Console.WriteLine("Hello and welcome to my game: Hang Man !!!");
+            Console.WriteLine("\n");
+            Console.WriteLine("About me         Instructions\n   1                   2");
+            Console.WriteLine("\n");
+            Console.WriteLine("Please enter your choice, when you are done type: end");
+            string choise = "0";
+            while (choise != "end")
+            {
+                choise = Console.ReadLine();
+                if (choise != "1" || choise != "2" || choise != "end")
+                {
+                    while(choise != "1" && choise != "2" && choise != "end")
+                    {
+                        Console.WriteLine("plz type 1 , 2 or end according to your wish  !!!");
+                        choise = Console.ReadLine();
+                    }
+                }
+                if (choise == "1")
+                {
+                    Console.WriteLine("                                                                                                             1\n________________________________________________________________________________________________________________________________________________________________________________________________________________");
+                    Console.WriteLine("\n");
+                    Console.WriteLine("Hi !");
+                    Console.WriteLine("My name is Harel Belay, I am 16 years old and I am a young programmer!");
+                    Console.WriteLine("I study c # programming in school but mostly at home.");
+                    Console.WriteLine("This is the first game I have programmed in my life! I really hope you like it!");
+                    Console.WriteLine("If you have any ideas for improving the game do not hesitate to contact me by email or phone number");
+                    Console.WriteLine("* All rights reserved to RLB");
+                    Console.WriteLine("* Anyone who copies this content will be severely punished");
+                    Console.WriteLine("                                                                                                            \n________________________________________________________________________________________________________________________________________________________________________________________________________________");
+
+                }
+                else if (choise == "2")
+                {
+                    Console.WriteLine("                                                                                                             2\n________________________________________________________________________________________________________________________________________________________________________________________________________________");
+                    Console.WriteLine("\n");
+                    Console.WriteLine("My database has 5 categories: games, fruits, countries, movies, and books.");
+                    Console.WriteLine("You need to select one of the categories. Each of the categories has 10 words.");
+                    Console.WriteLine("The computer automatically grills one word from the category you selected.");
+                    Console.WriteLine("The word will appear as asterisks instead of letters (this implies the length of the word!).");
+                    Console.WriteLine("You need to guess only one letter in English at a time, you may need to enter characters (numbers, punctuation) several times.");
+                    Console.WriteLine("If you are right, the word will appear with an asterisk and the letter you guessed in its place instead of an asterisk.");
+                    Console.WriteLine("If you make a mistake, there will be an appropriate message and you will have another turn.");
+                    Console.WriteLine("If you guess the same word again (no matter if it is correct or incorrect) the computer will not let you move on, it will not count as disqualification and you will have to guess another letter!");
+                    Console.WriteLine("The game will end after 10 wrong guesses !!");
+                    Console.WriteLine("You can play as many times as you want! \nEnjoy and good luck !!!");
+                    Console.WriteLine("                                                                                                            \n________________________________________________________________________________________________________________________________________________________________________________________________________________");
+
+                }
+            }
+            int Count_Win_Rounds = 0;
+            int Count_Lose_Rounds = 0;
+            string round = "0";
+            while (round != "no")
+            {
+                Console.WriteLine("\nOK !! we are ready to start our game !!!\nplz type your category: \n");
+                Console.WriteLine("games            fruits            countries            movies            books\n");
+                Console.WriteLine("*** If you regret you can type the word: back and it will put you in a state of choice between the categories!");
+
+                string[] game = new string[10];
+                game[0] = "soccer";
+                game[1] = "basketball";
+                game[2] = "pro evolution soccer";
+                game[3] = "hockey";
+                game[4] = "fifa";
+                game[5] = "gta";
+                game[6] = "fortnite";
+                game[7] = "among us";
+                game[8] = "minecraft";
+                game[9] = "pubg";
+
+                string[] fruit = new string[10];
+                fruit[0] = "apple";
+                fruit[1] = "banana";
+                fruit[2] = "pear";
+                fruit[3] = "pineapple";
+                fruit[4] = "watermelon";
+                fruit[5] = "cherry";
+                fruit[6] = "kiwi";
+                fruit[7] = "blueberries";
+                fruit[8] = "clementine";
+                fruit[9] = "strawberries";
+
+                string[] country = new string[10];
+                country[0] = "ethiopia";
+                country[1] = "israel";
+                country[2] = "maldives";
+                country[3] = "portugal";
+                country[4] = "russia";
+                country[5] = "south Korea";
+                country[6] = "turkmenistan";
+                country[7] = "united States of America";
+                country[8] = "spain";
+                country[9] = "mexico";
+
+                string[] movie = new string[10];
+                movie[0] = "robin hood";
+                movie[1] = "fast and furious 6";
+                movie[2] = "harry potter";
+                movie[3] = "the maze runner";
+                movie[4] = "aquaman";
+                movie[5] = "avengers";
+                movie[6] = "spiderman";
+                movie[7] = "wonder woman";
+                movie[8] = "joker";
+                movie[9] = "jumanji";
+
+                string[] book = new string[10];
+                book[0]= "harry potter and the sorcerer's stone";
+                book[1]= "alice's adventures in wonderland";
+                book[2]= "pinocchio";
+                book[3]= "rich dad poor dad";
+                book[4]= "around the world in 80 days";
+                book[5]= "the phantom of the opera";
+                book[6]= "count that the day lost";
+                book[7]= "the hobbit";
+                book[8]= "the hunger games";
+                book[9]= "the cat in the hat";
+
+                string category = Console.ReadLine();
+                Random x = new Random();
+                int rnd = x.Next(0, 10);
+                string RandomWord = "0";
+                while (category != "games" && category != "fruits" && category != "countries" && category != "movies" && category!="books")
+                {
+                    Console.WriteLine("plz type games, fruits, countries, movies or books !!!");
+                    category = Console.ReadLine();
+                }
+                Console.WriteLine("Are you sure you want this category? ");
+                string back_category = Console.ReadLine();
+                while(back_category!="yes" && back_category != "no")
+                {
+                    Console.WriteLine("plz type yes or no according to your wish !");
+                    back_category= Console.ReadLine();
+                }
+                if (back_category=="no")
+                {
+                    continue;
+                }
+                if(back_category=="yes")
+                {
+                    Console.WriteLine("I'm happy you make up your mind");
+                }
+                if (category == "games")
+                {
+                    RandomWord = game[rnd];
+                }
+                else if (category == "fruits")
+                {
+                    RandomWord = fruit[rnd];
+                }
+                else if (category == "countries")
+                {
+                    RandomWord = country[rnd];
+                }
+                else if (category == "movies")
+                {
+                    RandomWord = movie[rnd];
+                }
+                else if (category == "books")
+                {
+                    RandomWord = book[rnd];
+                }
+                Console.WriteLine("\nGREAT CHOISE !");
+                Console.WriteLine("the computer chose this word for you: \n");
+                string[] mystery = new string[RandomWord.Length];
+                for (int i = 0; i < RandomWord.Length; i++)
+                {
+                    if (RandomWord.Substring(i, 1) != " ")
+                        mystery[i] = "*";
+                    else
+                        mystery[i] = " ";
+                }
+               
+                for (int j = 0; j < mystery.Length; j++)
+                {
+                    Console.Write(mystery[j]);
+                }
+                Console.WriteLine();
+                int Count_Right_Answer = 0;
+                int Count_Wrong_Answer = 0;
+                int Count_Check_Equal = 0;
+
+                string[] Remember_Guesses = new string[RandomWord.Length+10];
+                for (int i = 0; i < Remember_Guesses.Length; i++) Remember_Guesses[i] = "NONEANSWERwinlose";
+                string guess="";
+                int Index_Guess = 0;
+                Console.WriteLine("\nSTART TO GUESS");
+
+
+                while (Count_Wrong_Answer != 10)
+                {
+                    bool exists = false;
+                    Console.WriteLine();
+                    guess = Console.ReadLine();
+                    if (guess == RandomWord)
+                    {
+                        Count_Check_Equal = mystery.Length;
+                        break;
+                    }
+
+                    bool tf = false;
+                        for (int i = 0; i <=Index_Guess; i++)
+                        {
+                            if (Remember_Guesses[i] == guess)
+                            {
+                            Console.WriteLine("\nIdiot !! You have already selected this letter !!! This is not considered disqualification, please change your pick ");
+                            tf = true;
+                            break;
+                            }
+                        }
+                    if (tf == true)
+                        continue;
+                    
+                        Remember_Guesses[Index_Guess] = guess;
+                        Index_Guess++;
+
+
+                    int count_spaces = 0;
+                        for (int j = 0; j < RandomWord.Length; j++)
+                        {
+                            if (RandomWord.Substring(j, 1) == guess)
+                            {
+                            Count_Right_Answer++;
+                            mystery[j] = guess;
+                            exists = true;
+                            }
+                        if (RandomWord.Substring(j, 1) == " ")
+                            count_spaces++;
+                        
+                        }
+                    
+                     if (exists == true && Count_Right_Answer == (RandomWord.Length-count_spaces))
+                        Console.WriteLine("");
+                    else if (exists == true && Count_Right_Answer != RandomWord.Length)
+                    {
+                        Console.WriteLine("\nright, keep going !");
+                        Console.Write("\nHere is what you did so far: ");
+                        for (int j = 0; j < mystery.Length; j++)
+                        {
+                            Console.Write(mystery[j]);
+                        }
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Count_Wrong_Answer++;
+                        if (Count_Wrong_Answer == 10)
+                        {
+                            Console.WriteLine("Incorrect !! your guesses are over !!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nincorrect ! plz try again\nyou have more " + (10 - Count_Wrong_Answer) + " wrong guesses left");
+                        }
+                        Console.Write("\nHere is what you did so far: ");
+                        for (int j = 0; j < mystery.Length; j++)
+                        {
+                            Console.Write(mystery[j]);
+                        }
+                        Console.WriteLine();
+
+                    }
+                    if (Count_Right_Answer != (RandomWord.Length-count_spaces))
+                    {
+                        Console.Write("\nHere is your all guesses until now: ");
+                        for (int i = 0; i < Index_Guess; i++)
+                        {
+                            Console.Write(Remember_Guesses[i] + " ");
+                        }
+                    }
+                    
+                    Count_Check_Equal = 0;
+                    for (int j = 0; j < mystery.Length; j++)
+                    {
+                        if (mystery[j] == RandomWord.Substring(j, 1))
+                            Count_Check_Equal++;
+                        else
+                            break;
+                    }
+                    if (Count_Check_Equal == mystery.Length)
+                    {
+                        Count_Win_Rounds++;
+                        Console.WriteLine();
+                        Console.WriteLine("\nYESSSSSSSSSSSSSSS you got it !!!");
+                        Console.Write("\nby the way the whole word was : ");
+                        for (int j = 0; j < mystery.Length; j++)
+                        {
+                            Console.Write(mystery[j] + " ");
+                        }
+                        Console.WriteLine();
+                        if (Count_Win_Rounds <= 2)
+                        {
+                            if (Count_Win_Rounds == 1)
+                            {
+                                Console.WriteLine("\nyou have just won ! Do you want another round or would you rather retire at 1 win\n");
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nyou have just won ! Do you want another round or would you rather retire at 2 wins\n");
+                            }
+                            Console.WriteLine("If you want another round, type: yes. If you do not want type: no\n");
+                        }
+                        else if ((Count_Win_Rounds > 2 && Count_Win_Rounds <= 5) && Count_Lose_Rounds <= 2)
+                        {
+                            Console.WriteLine("\nWowwwwww, you are really good !!!! Do you continue to play or retire at peak?");
+                        }
+                        else
+                            Console.WriteLine("\nPlease leave my game, I feel like you won the system .....");
+                            round = Console.ReadLine();
+                        while(round!="no" && round!="yes")
+                        {
+                            Console.WriteLine("plz type yes or no according to your wish, that you won does not mean that you have to show off and write illegal things, the rules also apply to you and you should start obeying them");
+                            round = Console.ReadLine();
+                        }
+                        break;
+
+                    }
+                }
+
+                if (Count_Check_Equal != mystery.Length)
+                {
+                    
+                    Count_Lose_Rounds++;
+                    Console.WriteLine();
+                    Console.WriteLine("\nLoser !!!!\n");
+                    Console.Write("by the way the whole word was : ");
+                    for (int j = 0; j < RandomWord.Length; j++)
+                    {
+                        Console.Write(RandomWord.Substring(j, 1) + " ");
+                    }
+                    Console.WriteLine();
+                    if (Count_Lose_Rounds <= 2)
+                    {
+                        Console.WriteLine("I'm just kidding you are not a loser ! Do not give up, play another round and this time you will win!!!");
+                        Console.WriteLine("If you want another round, type: yes. If you do not want type: no\n");
+                    }
+                    else if ((Count_Lose_Rounds > 2 && Count_Lose_Rounds <= 5)&& Count_Win_Rounds<=2)
+                    {
+                        Console.WriteLine("all right you are kinda loser, are you sure you want to countinue?\n");
+                    }
+                    else
+                        Console.WriteLine("You need to quit.....");
+                    round = Console.ReadLine();
+                    while (round != "no" && round != "yes")
+                    {
+                        Console.WriteLine("plz type yes or no according to your wish, Just because you lost does not mean you have to type wrong things, do not cry! Wipe away your tears and get back to playing like a man!\n");
+                        round = Console.ReadLine();
+                    }
+
+                }
+                else if(guess==RandomWord)
+                {
+                    Count_Win_Rounds++;
+                    Console.WriteLine();
+                    Console.WriteLine("\nYESSSSSSSSSSSSSSS you got it !!!");
+                    Console.Write("\nby the way the whole word was : ");
+                    for (int i = 0; i < RandomWord.Length; i++)
+                    {
+                        Console.Write(RandomWord.Substring(i, 1) + " ");
+                    }
+                    Console.WriteLine();
+                    if (Count_Win_Rounds <= 2)
+                    {
+                        if (Count_Win_Rounds == 1)
+                        {
+                            Console.WriteLine("\nyou have just won ! Do you want another round or would you rather retire at 1 win\n");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nyou have just won ! Do you want another round or would you rather retire at 2 wins\n");
+                        }
+                        Console.WriteLine("If you want another round, type: yes. If you do not want type: no\n");
+                    }
+                    else if ((Count_Win_Rounds > 2 && Count_Win_Rounds <= 5) && Count_Lose_Rounds <= 2)
+                    {
+                        Console.WriteLine("\nWowwwwww, you are really good !!!! Do you continue to play or retire at peak?");
+                    }
+                    else
+                        Console.WriteLine("\nPlease leave my game, I feel like you won the system .....");
+                    round = Console.ReadLine();
+                    while (round != "no" && round != "yes")
+                    {
+                        Console.WriteLine("plz type yes or no according to your wish, that you won does not mean that you have to show off and write illegal things, the rules also apply to you and you should start obeying them");
+                        round = Console.ReadLine();
+                    }
+                    
+                }
+
+            }
+            Console.WriteLine("\nNow the game is finally over!");
+            Console.WriteLine("\nBY THE WAY here is your Game data:\n");
+            Console.WriteLine("WINS : "+ Count_Win_Rounds);
+            Console.WriteLine("LOSSES : " + Count_Lose_Rounds+"\n");
+            if (Count_Win_Rounds > Count_Lose_Rounds)
+                Console.WriteLine("In conclusion, you won !!! You are winner");
+            else if (Count_Win_Rounds < Count_Lose_Rounds)
+                Console.WriteLine("In conclusion, you lost !!! Not bad, win next time...");
+            else
+                Console.WriteLine("In conclusion, this is a draw !!! No one won here");
+            Console.WriteLine("\nWe are done here, I really hope you enjoyed it !!! see you next time ! Bye....");
